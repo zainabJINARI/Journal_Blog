@@ -47,10 +47,23 @@ header{
     color: black;
     font-weight: bold;
     width: max-content;
-
-
 }
 
 .image-blog {
     width:20%;
+}
+section{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap:1em;
+}
+.one{
+    grid-column: 1/-1;
+}
+.image-blog{
+    width: 100%;
+}
+.see-more{
+    grid-column: 1/-1;
 }
