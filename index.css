@@ -5,6 +5,7 @@ body{
     font-family: 'Source Sans Pro', sans-serif;                                               
 }
 html{
+    user-select: none;
     box-sizing: border-box;
 }
 *{
