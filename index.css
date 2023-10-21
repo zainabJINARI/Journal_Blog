@@ -172,6 +172,7 @@ footer .title{
 footer .copy-right{
     color: #D7D7D7 ;
 }
+
     
 @media (min-width:570px){
     .one img{
@@ -185,5 +186,35 @@ footer .copy-right{
     .one .description{
         max-width: 600px;
     }
-}
+    /* about page*/
+    
 
+}
+/*Style of the about me page*/
+.about{
+    display: inherit;
+    padding: 1em;
+    font-size: 1em;
+    color: #151515;
+
+}
+.about .about-me-img{
+    padding: 1em;
+}
+.about .about-me-img img{
+    width: 100%;
+    max-width:200px;
+    background-color: #03045e;
+    border-radius: 50%;
+    box-shadow: #03045e 2px 2px 2px;
+    padding: 0.4em;
+}
+.about h1{
+    font-size: 2.175rem;
+}
+.about  article h3{
+    font-size: inherit;
+}
+@media (min-width:570px){
+    
+}
