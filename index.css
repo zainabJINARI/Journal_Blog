@@ -85,7 +85,7 @@ header{
 section{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 2fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap:1em;
 }
 .one{
@@ -215,6 +215,50 @@ footer .copy-right{
 .about  article h3{
     font-size: inherit;
 }
-@media (min-width:570px){
-    
+@media (min-width:650px){
+    .about{
+        display: grid;
+        grid-template-columns: 1em minmax(200px,300px) minmax(auto,1fr) 1em ;
+        
+    }
+    .about .about-me-img{
+        grid-column: 2/3;
+
+    }
+    .about .greeting{
+        grid-column: 3/4;
+        align-self: center;
+    }
+    .about article:nth-of-type(1){
+        grid-column: 2/-2;
+    }
+    .about article:nth-of-type(2){
+        grid-column: 2/-2;
+    }
+    .recent-posts{
+        padding: 2em 0.5em 1em 0.5em;
+        grid-template-columns: repeat(3, minmax(300px,1fr));
+    }
+    .blog:not(.one){
+        justify-self: center;
+    }
+    .recent-posts h3{
+        grid-column: 1/-1;
+        margin: auto;
+    }
+}
+@media (max-width:950px){
+    .recent-posts{
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    }
+    .recent-posts h3{
+        grid-column: 1/-1;
+        margin: auto;
+    }
+   
+}
+@media (min-width:950px){
+    section[class="blogs"]{
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
 }
