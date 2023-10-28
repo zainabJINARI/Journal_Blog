@@ -1,3 +1,4 @@
+
 body{
     margin: 0;
     padding: 0;
@@ -8,7 +9,7 @@ body{
     box-sizing: border-box;
 }
 
-
+/*Authentication page*/
 header .logo{
     padding:1em 0.5em;
     display: flex;
@@ -73,3 +74,6 @@ section h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: solid;
 }
+
+
+

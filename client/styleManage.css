@@ -1,0 +1,70 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;                                               
+}
+/*remove scroll bars */
+html::-webkit-scrollbar {
+    display: none;
+}
+  
+html{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+html{
+    user-select: none;
+    box-sizing: border-box;
+}
+*{
+    box-sizing: inherit;
+}
+
+header .logo{
+    padding:1em 0.5em;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+}
+header .logo h1{
+    font-size: 0.9rem;
+    align-self: center;
+}
+header .logo .logo-img{
+    font-family: 'Roboto';
+    width: 300px;
+    height: 50px;
+    align-self: center;
+}
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: baseline;
+    background-color:  #141414;
+    
+}
+#navbar{
+    position: relative;
+    align-self: center;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+#navbar a{
+    padding: 0.5em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    text-decoration: none;
+    font-weight: bold;
+    width: max-content;
+    margin: 0 1em;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    
+}
+a i{
+    width: 30px;
+}

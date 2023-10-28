@@ -4,21 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Blog</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./styleManage.css">
+    <!--font awsome kit for icons-->
+    <script src="https://kit.fontawesome.com/de0f1ce5ee.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../images/logos/icon.png" alt="logo" class="logo-img">
-            <h1>My Learning Journal</h1>
+            <img src="../images/logos/logoWhite.png" alt="logo" class="logo-img">
         </div>
         <nav id="navbar">
-            
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About me</a>
-            <a>Manage Blog</a>
+            <a href="#" class="current">Manage Blog</a>
+            <a><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i></a>
         </nav>
     </header>
+    <main>
+        <nav>
+            <a>
+                Add Blog
+            </a>
+            <a>
+                Update Blog
+            </a>
+            <a>
+                Delete Blog
+            </a> 
+            <!--<a>
+                Update About
+            </a>-->
+        </nav>
+        <section class="Add-blog">
+                <h1>Create New Blog</h1>
+                <form>
+                    <input type="text" name="title" id="title" required>
+                    <input type="text" name="description" id="description" required>
+                    <textarea id="content" class="content"></textarea>
+                    <input type="file" id="imageBlog" name="imageBlog" accept="image/png, image/jpeg, image/jpg" />
+                    <button type="submit">Post</button>
+                </form>
+        </section>
+    </main>
     
 </body>
 </html>
