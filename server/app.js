@@ -1,6 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const expressLayout = require('express-ejs-layouts')
 
+
+
+
+const Blog = require('./models/blog')
 
 mongoose.set('strictQuery',false)
 /*
@@ -16,17 +21,24 @@ if(process.env.NODE_ENV !== 'production'){
 }
 const PORT = process.env.PORT || 3000
 const CONNECTION = process.env.CONNECTION
-app.get('/',(req,res)=>{
-    res.setHeader('Content-Type','text/plain')
-    var d= new Date()
-    console.log(req.query.Name)
-    //console.log(req.originalUrl)
-    //console.log(req.get('host'))
-
-    
-    //termine la réponse HTTP sans envoyer des données
-    res.end(d.toString()+'Bonjour')
+app.use(express.static('../public'));
+const blog = new Blog({
+    title:'Blog One',
+    description:'This is my first blog',
+    content:'Blog about something interesting stay tunned'
 })
+blog.save()
+
+//set a public folder 
+app.use(express.static('public'))
+app.use(expressLayout)
+app.set('layout','./layouts/main')
+app.set('view engine','ejs')
+
+//link to the routes files 
+app.use('/',require('./routes/main'))
+
+
 app.use((req,res)=>{
     res.type('text/plain')
     res.status(404)
