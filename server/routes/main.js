@@ -4,12 +4,32 @@ const mongoose = require('mongoose');
 const Blog = mongoose.model('Blog'); // Assuming you've defined your Blog model
 
 //routes
+/* GET 
+HOME
+ */
 router.get('', async (req,res)=>{
+    
     try {
-        const blogs = await Blog.find();
-        console.log(blogs)
+        let perPage = 8
+        let page = req.query.page || 1
+        //const data = await Blog.find()
+        const data = await Blog.aggregate([ {$sort: {createdAt: -1}}])
+        .skip(perPage * page - perPage)
+        .limit(perPage)
+        .exec()
+
+        const count = await Blog.count()
+        const nextPage = parseInt(page) + 1;
+        const hasNextPage = nextPage <= Math.ceil(count / perPage)
+
+       
+        res.render('index',{
+            data,
+            current:page,
+            nextPage: hasNextPage ? nextPage : null
+        })
          // Fetch all blogs from the database
-        res.render('index', { blogs }); // Render the homepage template with blogs data
+       
       } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

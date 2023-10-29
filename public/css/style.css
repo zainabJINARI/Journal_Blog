@@ -19,6 +19,7 @@ html{
 }
 *{
     box-sizing: inherit;
+    text-decoration: none;
 }
 
 header .logo{
@@ -114,6 +115,7 @@ section{
     grid-column: 1/-1;
     color: white;
 
+
 }
 .one .description{
     margin: 0;
@@ -122,13 +124,16 @@ section{
     color: white;
 }
 .date{
+    color: #505050;
     font-size:0.9rem ;
 }
 .title{
+    color: #141414;
     font-size: 1.5rem;
 }
 .description{
     color: #505050;
+    text-decoration: none;
     font-size: 1rem;
 }
 .image-blog{
