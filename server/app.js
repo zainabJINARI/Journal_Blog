@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-dotenv.config()
+
+
 mongoose.set('strictQuery',false)
 /*
 when you perform queries using Mongoose,
@@ -10,7 +10,12 @@ when you perform queries using Mongoose,
    in the documents being queried. */
 const fs = require('fs')
 const app = express()
-const PORT = process.env.PORT
+
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+const PORT = process.env.PORT || 3000
+const CONNECTION = process.env.CONNECTION
 app.get('/',(req,res)=>{
     res.setHeader('Content-Type','text/plain')
     var d= new Date()
@@ -31,7 +36,7 @@ app.use((req,res)=>{
 
 const start = async()=>{
     try{
-        await mongoose.connect('mongodb+srv://zainabjinari:PnLBSm1LawoQw9en@cluster0.zmyj8km.mongodb.net/?retryWrites=true&w=majority');
+        await mongoose.connect(CONNECTION);
         app.listen(PORT,()=>{
             console.log("server is running on port"+PORT)
         })
