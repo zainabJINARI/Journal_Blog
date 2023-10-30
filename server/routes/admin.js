@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
 const Blog = mongoose.model('Blog'); // Assuming you've defined your Blog model
-
+const User = mongoose.model('User')
 const adminLayout='../views/layouts/admin'
 /*
  * GET /
