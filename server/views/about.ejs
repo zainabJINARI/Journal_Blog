@@ -5,10 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About me</title>
         <link rel="stylesheet" href="index.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500&family=Smythe&display=swap" rel="stylesheet">
-        <link href="https://fonts.cdnfonts.com/css/source-sans-pro" rel="stylesheet">
+
     </head>
 <body>
     <section class="about">
@@ -40,28 +37,17 @@
         </article>
 
     </section>
-    <section class="recent-posts">
+    <section class="recent-posts" id="recent-posts">
             <h3>Recent posts</h3>
-            <div class="blog ">
-                <img src="../images/blog.jpeg"  class="image-blog" alt="image of blog 2">
-                <p class="date">JULY 23,2022</p>
-                <h1 class="title">Blog one</h1>
-                <p class="description">I'm excited to start a new learning journey as a Scrimba Bootcamp student! After several months of learning in the Frontend Developer Career Path.</p>
-                
-            </div>
-            <div class="blog ">
-                <img src="../images/coding.jpg"  class="image-blog" alt="image of blog 3">
-                <p class="date">JULY 23,2022</p>
-                <h1 class="title">Blog two</h1>
-                <p class="description">I'm excited to start a new learning journey as a Scrimba Bootcamp student! After several months of learning in the Frontend Developer Career Path.</p>
-                
-            </div>
-            <div class="blog ">
-                <img src="../images/bloggin3.jpg"  class="image-blog" alt="image of blog 4">
-                <p class="date">JULY 23,2022</p>
-                <h1 class="title">Blog three</h1>
-                <p class="description">I'm excited to start a new learning journey as a Scrimba Bootcamp student! After several months of learning in the Frontend Developer Career Path.</p> 
-            </div>
+            <% for( let index = 0; index < 3; index++ ) { %>
+                <a class="blog "href="/blog/<%= data[index]._id %>">
+                    <img src="../images/blog.jpeg"  class="image-blog" alt="image of blog 2">
+                    <p class="date"><%= data[index].createdAt.toDateString() %></p>
+                    <h1 class="title"><%= data[index].title  %></h1>
+                    <p class="description"><%= data[index].description %></p>
+                    
+                </a>
+            <% } %>
     </section>
     
 </body>

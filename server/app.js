@@ -39,6 +39,7 @@ app.set('view engine','ejs')
 
 //link to the routes files 
 app.use('/',require('./routes/main'))
+app.use('/',require('./routes/admin'))
 
 //storage 
 //destionation is the folder in which they will store the files 

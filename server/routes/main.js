@@ -2,13 +2,13 @@ const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
 const Blog = mongoose.model('Blog'); // Assuming you've defined your Blog model
-
+// blogs data
 //routes
-/* GET 
-HOME
- */
+/* GET HOME  */
 router.get('', async (req,res)=>{
-    
+    const locals = {
+        title:'Home Page'
+    }
     try {
         let perPage = 8
         let page = req.query.page || 1
@@ -25,6 +25,7 @@ router.get('', async (req,res)=>{
        
         res.render('index',{
             data,
+            locals,
             current:page,
             nextPage: hasNextPage ? nextPage : null
         })
@@ -35,9 +36,31 @@ router.get('', async (req,res)=>{
         res.status(500).send('Internal Server Error');
       }
 })
-router.get('/about',(req,res)=>{
-    res.render('about')
+/* GET ABOUT */
+router.get('/about',async(req,res)=>{
+    const locals = {
+        title:'About Page'
+    }
+    const data = await Blog.aggregate([ {$sort: {createdAt: -1}}])
+    res.render('about',{data,locals})
 })
+
+/* GET Blog:id */
+router.get('/blog/:id', async (req,res)=>{
+    try {
+        let slug= req.params.id
+        const data = await Blog.findById({_id:slug})
+        const locals = {
+            title: data.title
+        }
+        res.render('blog',{ data,locals})
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      }
+})
+
 
 
 //export the router 

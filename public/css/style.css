@@ -1,6 +1,8 @@
 body{
     margin:0;
     padding: 0;
+    position: relative;
+    min-height: 100vh;
     color: #141414;
     font-family: 'Source Sans Pro', sans-serif;                                               
 }
@@ -168,7 +170,10 @@ footer{
     text-align: center;
     background-color: #141414;
     font-size:0.75rem ;
-    
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem; 
 }
 footer .title{
     color: #ECECEC;
@@ -177,7 +182,9 @@ footer .title{
 footer .copy-right{
     color: #D7D7D7 ;
 }
-
+.blogs,section #recent-posts{
+    padding-bottom: 5rem;
+}
     
 @media (min-width:570px){
     .one img{
@@ -241,7 +248,7 @@ footer .copy-right{
         grid-column: 2/-2;
     }
     .recent-posts{
-        padding: 2em 0.5em 1em 0.5em;
+        padding: 2em 0.5em 5rem 0.5em;
         grid-template-columns: repeat(3, minmax(300px,1fr));
     }
     .blog:not(.one){
@@ -266,4 +273,30 @@ footer .copy-right{
     section[class="blogs"]{
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
+}
+
+
+/* styling the single blog page*/
+
+.single-blog{
+    padding :2em  3em ;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 900px;
+}
+.single-blog img{
+    max-width: 900px;
+}
+.single-blog .title{
+    margin: 0 2rem;
+   
+}
+.single-blog article,.single-blog .description,.single-blog .date{
+    padding: 0 2em;
+}
+.single-blog article{
+    padding-top: 2em;
+    text-shadow: 1px 0.5px #dccaa6;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
