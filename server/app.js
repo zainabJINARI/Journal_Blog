@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const expressLayout = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
+//help us to store our login cession so we don't have to log in everytime
+const cookieParser = require('cookie-parser')
 
 
 
