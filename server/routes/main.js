@@ -17,7 +17,7 @@ router.get('', async (req,res)=>{
         .skip(perPage * page - perPage)
         .limit(perPage)
         .exec()
-
+        console.log(data)
         const count = await Blog.count()
         const nextPage = parseInt(page) + 1;
         const hasNextPage = nextPage <= Math.ceil(count / perPage)
