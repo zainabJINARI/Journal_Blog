@@ -1,1 +1,34 @@
-<h1>Admin Dash Board</h1>
+
+<main class="container-admin">
+    <nav class="nav-dashboard">
+        <a href="#" class="add"><span class="isVisible" > Add Blog</span> <i class="fa-solid fa-plus" style="color: #000;"></i></a>
+        <a href="#" class="update"><span class="isVisible ">Update Blog</span><i class="fa-solid fa-pen-fancy" style="color: #000;"></i></a>
+        <a href="#" class="delete"><span class="isVisible ">Delete Blog</span><i class="fa-solid fa-trash" style="color: #000;"></i></a>
+        <a href="#" class="setting"><span class="isVisible ">Settings</span><i class="fa-solid fa-gear" style="color: #000;"></i></a>
+    </nav>
+    <section class="visible dashboard-img">
+        <img src="/images/logos/Admin-amico.png" alt="image dashboard" width="400px">
+    </section>
+    <section class="visible add-blog">
+        <h1>Create New Blog </h1>
+        <form method="POST" action="/addBlog">
+            <input type="text" name="title" placeholder="Blog Title Here" id="title" required>
+            <input type="text" name="description" placeholder="Blog Description Here" id="description" required>
+            <input type="file" name="imageBlog" id="imageBlog">
+            <textarea id="content" class="content" placeholder="Content Of Blog Goes Here" required>
+            </textarea>
+            <input type="submit" value="Create" id="create" >
+        </form>
+    </section>
+    <section class="visible update-blog">
+        
+        <form>
+            <input type="text" name="title" placeholder="Blog Title Here" id="title">
+            <input type="text" name="description" placeholder="Blog Description Here" id="description">
+            <input type="file" name="imageBlog" id="imageBlog">
+            <textarea id="content" class="content" placeholder="Content Of Blog Goes Here">
+            </textarea>
+            <input type="submit" value="CREATE" id="create" >
+        </form>
+    </section>
+</main>

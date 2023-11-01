@@ -20,7 +20,7 @@ router.get('/admin', async (req,res)=>{
   
     try {
         const locals = {
-            title: 'Admin Page'
+            title: 'Admin Login'
         }
         
         res.render('admin/login',{locals,layout: adminLayout})
@@ -49,7 +49,10 @@ router.post('/admin',async (req,res)=>{
     
 })
 router.get('/admin_dash',(req,res)=>{
-  res.render('admin/admin_dash')
+  const locals = {
+    title: 'Admin Dashboard'
+}
+  res.render('admin/admin_dash',{locals,layout: adminLayout})
 })
 
 module.exports = router

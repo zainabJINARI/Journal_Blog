@@ -11,32 +11,7 @@ body{
     box-sizing: border-box;
 }
 
-/*Authentication page*/
-header .logo{
-    padding:1em 0.5em;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    width: 100%;
-}
-header .logo h1{
-    font-size: 0.9rem;
-    align-self: center;
-}
-header .logo .logo-img{
-    font-family: 'Roboto';
-    width: 300px;
-    height: 50px;
-    align-self: center;
-}
-header{
-    width: 100%;
-    display: flex;
-    margin: auto;
-    background-color:  #141414;
-    color: white;
-    
-}
+
 
 
 section{
@@ -68,7 +43,7 @@ section form input[type="submit"]{
     font-size: 1rem;
 }
 section form input[type="submit"]:hover,section form input[type="submit"]:active{
-    background-color: chartreuse;
+    background-color: #9fa0ea;
     color: white;
 
 }

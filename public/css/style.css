@@ -73,7 +73,7 @@ header{
     bottom: -2px; /* adjust this value to control the distance of the underline from the text */
     height: 2px; 
     width: 0;
-    background-color: #03045e;
+    background-color: #9fa0ea;
     transition: width 0.3s ease; 
 }
 
