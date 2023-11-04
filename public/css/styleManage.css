@@ -51,7 +51,7 @@ a i{
 
 /*Style for the dashboard */
 .container-admin{
-    margin-top: 2.5em;
+    
     display: flex;
     flex-direction: column;
 }
@@ -69,12 +69,15 @@ a i{
 }
 .nav-dashboard a{
     border-radius: 5%;
-    border: #000 solid 2px ;
+    border: #9fa0ea solid 1px ;
     padding: 0.5em 0.3em;
     margin-bottom: 3em;
     
 }
-.nav-dashboard a:hover,.nav-dashboard a:active{
+.nav-dashboard a:hover{
+    box-shadow: 2px 2px 2px#9fa0ea;
+}
+.nav-dashboard a:active{
     background-color: #9fa0ea;
     
 }
@@ -83,15 +86,14 @@ a i{
    margin: auto ;
 }
 .add-blog{
+    margin-top: 2.5em;
     text-align: center;
     width: 100%;
     max-width:500px;
     align-self: baseline;
 }
-.nav-dashboard ,.add-blog, .update-blog{
-    display: none;
-}
-.add-blog form textarea{
+
+.add-blog form textarea,.container-update-blog  .update-blog-post form textarea{
 
     resize: none;
     max-width: 400px;
@@ -102,8 +104,8 @@ a i{
     
     padding: 1em;
 }
-.add-blog form *{
-    border: #000 solid 2px;
+.add-blog form *,.add-blog form *:active{
+    border: #9fa0ea solid 1px;
 
 }
 .add-blog form *::placeholder{
@@ -112,8 +114,125 @@ a i{
 }
 
 .add-blog h1{
+    color: #9fa0ea;
+  
     margin-top: 0;
 }
+
+
+/*Update section */
+.update-blog{
+  margin-top: 0;
+  max-width: 800px;
+   display: flex;
+   flex-direction: column;
+   text-align: start;
+}
+.blog-list-elements{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0.5em;
+    margin: 0  0 5rem 0;
+}
+.blog-elements{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 0 1em;
+    border-radius: 5px;
+    margin : 0 2em 0.5em 2em;
+    border: 1px solid #9fa0ea;
+
+    
+}
+.blog-elements:hover{
+   
+    box-shadow:2px 2px 2px #9fa0ea;
+}
+.blog-elements:active{
+    background-color: #9fa0ea;
+}
+.blog-elements h1{
+    font-size: 1rem;
+}
+.blog-elements p {
+    width: 100%;
+    font-size: 0.7rem;
+}
+.blog-elements p{
+    display: flex;
+    flex-direction: column;
+}
+.blog-elements a{
+    width: 100%;
+}
+.blog-elements a h1{
+    color: #000;
+}
+.blog-elements a p{
+    color: #505050;
+}
+.blog-elements p span{
+    margin-left: auto;
+    margin-top: 1em;
+}
+
+/*Update blog page (where we update)*/
+.container-update-blog{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+}
+.container-update-blog .back,.container-update-blog .back:active{
+    position: absolute;
+    padding: 1em;
+    color: #9fa0ea;
+   
+}
+.container-update-blog  .update-blog-post{
+    align-self: center;
+    margin-bottom: 5rem;
+    margin-top: 2em;
+}
+.container-update-blog  .update-blog-post form *{
+    width: 100%;
+    border: 1px solid  #9fa0ea;
+    border-radius: 5px;
+}
+.container-update-blog  .update-blog-post h1{
+    color: #9fa0ea;
+}
+.container-update-blog .delete-btn{
+    justify-self: baseline;
+    position: absolute;
+    right: 0.5em;
+    top: 1em;
+    
+
+}
+.container-update-blog .delete-btn input{
+    border: red 1px solid;
+    color: red;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-weight: bold;
+}
+.container-update-blog .delete-btn input:hover{
+    background-color: red;
+    color: white;
+  
+    
+}
+
+
+.nav-dashboard ,.add-blog, .update-blog{
+    display: none;
+}
+
 
 
 @media (min-width:750px){

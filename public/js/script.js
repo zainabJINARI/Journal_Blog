@@ -24,5 +24,12 @@ document.addEventListener('DOMContentLoaded', function(){
         }) 
         addBlog.style.display='block'
     })
+    document.querySelector('.update').addEventListener('click',(event)=>{
+        event.preventDefault()
+        allSection.forEach((e)=>{
+            e.style.display='none'
+        }) 
+        updateBlog.style.display='block'
+    })
     
 })

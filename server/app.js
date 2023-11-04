@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const expressLayout = require('express-ejs-layouts')
+const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
 //help us to store our login cession so we don't have to log in everytime
 const cookieParser = require('cookie-parser')
@@ -27,7 +28,7 @@ connectDB();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
-
+app.use(methodOverride('_method'))
 
 
 

@@ -5,7 +5,14 @@
         <p class="description"><%= data.description %></p>
         <img src="/images/blog.jpeg"  class="image-blog" alt="image of blog 2">
         <article>
-            <%= data.content %>
+            <% const regexPattern = /([^\n]+)/g %>
+            
+            <% const arrayOfStrings = (data.content).match(regexPattern)%>
+            <% console.log(arrayOfStrings)%>
+            <% arrayOfStrings.forEach(element => { %>
+                <p><%= element%></p>
+            <% }) %>
+            
         </article>
         
     </div>
