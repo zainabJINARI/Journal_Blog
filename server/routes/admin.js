@@ -70,6 +70,8 @@ router.post('/admin',async (req,res)=>{
    
     
 })
+
+
 router.get('/admin_dash',authMiddleware,async (req,res)=>{
   const locals = {
     title: 'Admin Dashboard'
@@ -78,7 +80,9 @@ router.get('/admin_dash',authMiddleware,async (req,res)=>{
   console.log(data)
   res.render('admin/admin_dash',{data,locals,layout: adminLayout})
 })
-router.post('/admin_dash',authMiddleware,async (req,res)=>{
+
+
+router.post('/add-blog',authMiddleware,async (req,res)=>{
   console.log(req.body)
   const {title,description,content}=req.body
 
@@ -91,6 +95,10 @@ router.post('/admin_dash',authMiddleware,async (req,res)=>{
     console.log(error.message)
   }
 })
+
+
+
+
 router.get('/admin_dash/edit-blog/:id',authMiddleware,async(req,res)=>{
   const locals = {
     title: 'Update Blog'
@@ -99,6 +107,10 @@ router.get('/admin_dash/edit-blog/:id',authMiddleware,async(req,res)=>{
   const data = await Blog.findById({_id:slug})
   res.render('admin/edit-blog',{data,locals,layout: adminLayout})
 })
+
+
+
+
 router.put('/admin_dash/edit-blog/:id',authMiddleware,async (req,res)=>{
  
   try {
@@ -109,26 +121,42 @@ router.put('/admin_dash/edit-blog/:id',authMiddleware,async (req,res)=>{
       content:req.body.content,
       updatedAt:Date.now()
     })
-    res.status(201).json({message:'Blog edited  seccessfully'})
+    res.redirect('/admin_dash')
     
   } catch (error) {
     console.log('error in editing ')
   }
 })
+
+
+
 router.delete('/admin_dash/delete-blog/:id',authMiddleware,async (req,res)=>{
  
   try {
    
     await Blog.deleteOne({_id:req.params.id})
-    res.status(201).json({message:'Blog deleted  seccessfully'})
+    res.redirect('/admin_dash')
     
   } catch (error) {
     console.log('error in deleting ')
   }
 })
+
+
+
+
 router.get('/logout',(req,res)=>{
   res.clearCookie('token')
   res.redirect('/admin')
+})
+
+
+
+router.get('/add-blog',authMiddleware,(req,res)=>{
+  const locals = {
+    title: 'Add Blog'
+  }
+  res.render('admin/add-blog',{locals,layout: adminLayout})
 })
 
 module.exports = router

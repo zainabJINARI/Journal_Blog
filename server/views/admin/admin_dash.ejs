@@ -1,30 +1,28 @@
 
 <main class="container-admin">
     <nav class="nav-dashboard">
-        <a href="#" class="add"><span class="isVisible" > Add Blog</span> <i class="fa-solid fa-plus" style="color: #000;"></i></a>
-        <a href="#" class="update"><span class="isVisible ">Update Blog</span><i class="fa-solid fa-pen-fancy" style="color: #000;"></i></a>
-        <a href="#" class="delete"><span class="isVisible ">Delete Blog</span><i class="fa-solid fa-trash" style="color: #000;"></i></a>
-        <a href="#" class="setting"><span class="isVisible ">Settings</span><i class="fa-solid fa-gear" style="color: #000;"></i></a>
-    </nav>
-    <section class="visible dashboard-img">
-        <img src="/images/logos/Admin-amico.png" alt="image dashboard" width="400px">
-    </section>
-    <section class="visible add-blog">
-        <h1>Create New Blog </h1>
-        <form action="/admin_dash" method="POST" >
-            <input type="text" name="title" placeholder="Blog Title Here" id="title" required>
-            <input type="text" name="description" placeholder="Blog Description Here" id="description" required>
-            <input type="file" name="imageBlog" id="imageBlog">
-            <textarea id="content" class="content" placeholder="Content Of Blog Goes Here" name="content" required cols="50" rows="10"></textarea>
-            <input type="submit" value="Create" id="create" >
+        <form action="">
+            <input type="text" placeholder="Search.." name="search">
         </form>
-    </section>
-    <section class="visible update-blog">
+    </nav>
+    <!--<section class="visible dashboard-img">
+        <img src="/images/logos/Admin-amico.png" alt="image dashboard" width="400px">
+    </section>-->
+    <section class="update-blog">
         <ul class="blog-list-elements">
             <% data.forEach(element => { %>
                     <li class="blog-elements">
-                        <a href="admin_dash/edit-blog/<%= element._id%>">
-                            <h1><%= element.title%></h1>
+                        <a href="/blog/<%= element._id %>">
+                            <div class="same-line">
+                                <h1><%= element.title%></h1>
+                                <ul class="option"> 
+                                    <form action="/admin_dash/delete-blog/<%= element._id %>?_method=DELETE" method="POST">
+                                        <button type="submit"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+                                    </form>
+                                    <a href="admin_dash/edit-blog/<%= element._id%>"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
+                                </ul>
+                            </div>
+                            
                             <p><%= element.description%><span><%= element.createdAt.toDateString() %></span></p>
                         </a>
                         
