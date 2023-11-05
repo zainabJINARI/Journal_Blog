@@ -159,6 +159,35 @@ router.get('/add-blog',authMiddleware,(req,res)=>{
   res.render('admin/add-blog',{locals,layout: adminLayout})
 })
 
+router.post('/search',authMiddleware, async(req,res)=>{
+  const locals ={
+    title:'Search'
+  }
+  const search =req.body.search
+  try {
+    // Split the search term into words
+    const searchTerms = search.split(' ');
+
+    // Create an array to store regex patterns for each search term
+    const regexPatterns = searchTerms.map(term => new RegExp(term, 'i'));
+
+    const data = await Blog.find({
+      $or: [
+          // Match any of the regex patterns in the title field
+            { title: { $in: regexPatterns } },
+
+          // Match any of the regex patterns in the description field
+            { description: { $in: regexPatterns } }
+        ]
+    });
+
+    console.log(data)
+    res.render('admin/search',{locals,data,layout:adminLayout})
+
+  } catch (error) {
+    console.log('error in search')
+  }
+})
 module.exports = router
 
 /**

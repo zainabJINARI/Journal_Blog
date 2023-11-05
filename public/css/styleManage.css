@@ -62,6 +62,7 @@ html{
     display: none;
 }
 #search-container form button{
+    display: none;
     margin-left: auto;
     border: none;
     background-color: transparent;
@@ -136,7 +137,10 @@ a i{
     flex: 1;
     
 }
-
+.nav-dashboard form button{
+    border: none;
+    background-color: transparent;
+}
 /*Add blog style Edit blog */
 
 .add-blog,.update-blog-post{
@@ -326,7 +330,10 @@ a i{
 
 
 
-
+/*Additional styling for search results*/
+.search-blog{
+    margin: auto;
+}
 
 
 
@@ -358,7 +365,7 @@ a i{
         flex: 2;
         justify-self: center;
     }
-    #search-container form input{
+    #search-container form input,#search-container form button{
         display: inline;
     }
     
