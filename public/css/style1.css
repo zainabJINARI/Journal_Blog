@@ -1,0 +1,72 @@
+
+body{
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    padding: 0;
+    color: #141414;
+}
+*,::before,::after{
+    box-sizing: border-box;
+   
+}
+*:not(.fa-solid){
+    font-family: 'Edu TAS Beginner', cursive;
+
+}
+
+
+
+
+.login-section{
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10em;
+}
+.login-section form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.login-section form input{
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0.5em auto;
+    border: 1px solid #9fa0ea;
+    
+}
+.login-section form input[type="submit"]{
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #9fa0ea;
+    background-color: white;
+}
+.login-section form input[type="submit"]:hover,section form input[type="submit"]:active{
+    background-color: #9fa0ea;
+    color: white;
+    box-shadow: 2px 1px 2px #141414;
+}
+.login-section h1{
+    text-shadow: 2px 1px 2px #141414;
+    color: #9fa0ea;
+    text-decoration: solid;
+}
+#footer{
+position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; 
+  
+}
+
+
+
+

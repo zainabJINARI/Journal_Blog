@@ -1,0 +1,17 @@
+<header class="admin-header">
+    <a class="logo" href="/admin_dash">
+        <img src="/images/logos/icon.png" alt="logo" class="logo-img">
+        <h1>Admin Dashboard</h1>
+    </a>
+    <div id="search-container">
+        <form action="/search" role="search" method="POST">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <nav id="navbar">
+        <a href="/"><span class="isVisible">Home</span><i class="fa-solid fa-house" style="color: #000000;"></i></a>
+        <a href="/add-blog" class="add"><span class="isVisible" > Add Blog</span> <i class="fa-solid fa-plus" style="color: #000;" ></i></a>
+        <a href="/logout" aria-label="logout"><span class="isVisible" >Log out</span><i class="fa-solid fa-arrow-right-from-bracket" style="color: #000000;"></i></a>
+    </nav>
+</header>

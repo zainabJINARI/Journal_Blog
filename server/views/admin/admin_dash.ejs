@@ -1,0 +1,35 @@
+
+<main class="container-admin">
+    <nav class="nav-dashboard">
+        <form action="/search" role="search" method="POST">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </nav>
+    <!--<section class="visible dashboard-img">
+        <img src="/images/logos/Admin-amico.png" alt="image dashboard" width="400px">
+    </section>-->
+    <section class="update-blog">
+        <ul class="blog-list-elements">
+            <% data.forEach(element => { %>
+                    <li class="blog-elements">
+                        <a href="/blog/<%= element._id %>">
+                            <div class="same-line">
+                                <h1><%= element.title%></h1>
+                                <ul class="option"> 
+                                    <form action="/admin_dash/delete-blog/<%= element._id %>?_method=DELETE" method="POST">
+                                        <button type="submit"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+                                    </form>
+                                    <a href="admin_dash/edit-blog/<%= element._id%>"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
+                                </ul>
+                            </div>
+                            
+                            <p><%= element.description%><span><%= element.createdAt.toDateString() %></span></p>
+                        </a>
+                        
+                    </li>
+            <% }) %>
+        </ul>
+        
+    </section>
+</main>

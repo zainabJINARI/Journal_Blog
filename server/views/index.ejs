@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Journal</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+   
+    <section class="blogs">
+            <a class="blog one">
+                <img src="/images/programming.jpg" class="image-blog first" alt="image of blog 1">
+                <p class="date">JULY 23,2022</p>
+                <h1 class="title">My new journey as a bootcamp student.</h1>
+                <p class="description">After several months of learning in the Frontend Developer Career Path, I've made the big jump over to the Bootcamp to get expert code reviews of my Solo Projects projects and meet like-minded peers.</p>
+
+            </a>
+            <% data.forEach(blog => { %>
+                <a class="blog" href="/blog/<%= blog._id %>">
+                    <img src="/images/blog.jpeg"  class="image-blog" alt="image of blog 2">
+                    <p class="date"><%= blog.createdAt.toDateString() %></p>
+                    <h1 class="title"><%= blog.title %></h1>
+                    <p class="description"><%= blog.description %></p>
+                    
+                </a>
+            <% }) %> 
+            <% if (nextPage !== null) { %>
+                <a href="/?page=<%= nextPage %>" class="see-more">See More</a>
+            <% } %>
+            
+            
+
+    </section>
+    
+    
+</body>
+</html>
