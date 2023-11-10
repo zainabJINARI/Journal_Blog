@@ -1,0 +1,13 @@
+<section class="visible add-blog">
+    <h1>Create New Blog </h1>
+    <form action="/add-blog" method="POST" >
+        <input type="text" name="title" placeholder="Title" id="title" required>
+        <textarea type="text" name="description" placeholder="Description" id="description" required cols="50" rows="3" maxlength="250"></textarea>
+        <!-- <label for="imageBlog">
+            <i class="fa-solid fa-image" style="color: #9fa0ea;"></i> &nbsp;
+        </label> -->
+        <textarea id="content" class="content" placeholder="Tell Your Story" name="content" required cols="50" rows="20" id="content"></textarea>
+        <input type="file" name="imageBlog" id="imageBlog" value="image" accept="image/*">
+        <input type="submit" value="Create" id="create" class="create-btn" >
+    </form>
+</section>
