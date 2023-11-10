@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const fs = require('fs')
 const router = express.Router()
 const mongoose = require('mongoose')
 const Blog = mongoose.model('Blog') // Assuming you've defined your Blog model
@@ -10,6 +11,10 @@ const bcrypt = require('bcrypt')
 //you should store plain text passwords in ur db 
 const jwt = require('jsonwebtoken')
 const jwtSecret = process.env.JWT_SECRET
+
+//multer middle ware :
+const store = require('../middlewares/multer')
+
 /* Check login */
 /*This middleware is used to prevent users to go to some pages directly using 
  * route  
@@ -77,19 +82,23 @@ router.get('/admin_dash',authMiddleware,async (req,res)=>{
     title: 'Admin Dashboard'
   }
   const data = await Blog.find()
-  console.log(data)
   res.render('admin/admin_dash',{data,locals,layout: adminLayout})
 })
 
 
-router.post('/add-blog',authMiddleware,async (req,res)=>{
-  console.log(req.body)
+router.post('/add-blog',authMiddleware,store.single('imageBlog'),async (req,res,next)=>{
+  console.log(req)
   const {title,description,content}=req.body
-
+  const imageBlog= req.file
+  console.log(imageBlog)
+  let img = fs.readFileSync(imageBlog.path)
+  encoded_image = img.toString('base64')
+  
   try {
-    const blog = await Blog.create({title,description,content})
+    const blog = await Blog.create({title,description,content,img:{contentType:imageBlog.mimetype,imageBase64:encoded_image}})
+    console.log(blog)
     res.redirect('/admin_dash')
-    res.status(201).json({message:'Blog created seccessfully'})
+    //res.status(201).json({message:'Blog created seccessfully'})
   } catch (error) {
     console.log('error in blog creation ')
     console.log(error.message)

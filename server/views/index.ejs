@@ -19,7 +19,7 @@
             </a>
             <% data.forEach(blog => { %>
                 <a class="blog" href="/blog/<%= blog._id %>">
-                    <img src="/images/blog.jpeg"  class="image-blog" alt="image of blog 2">
+                    <img src="data:<%= blog.img.contentType%>;base64,<%=blog.img.imageBase64%>"  class="image-blog" alt="image of blog 2">
                     <p class="date"><%= blog.createdAt.toDateString() %></p>
                     <h1 class="title"><%= blog.title %></h1>
                     <p class="description"><%= blog.description %></p>
