@@ -240,9 +240,6 @@ footer .copy-right{
     margin-bottom: 1em;
 }
 
-.recent-posts:last-child{
-    margin-top: 6em;
-}
 @media (min-width:700px){
     .about{
         display: grid;
