@@ -121,7 +121,6 @@ router.put('/admin_dash/edit-blog/:id',authMiddleware,store.single('imageBlog'),
  
   try {
     const imageBlog= req.file
-    console.log(imageBlog)
     if(!imageBlog){
       await Blog.findByIdAndUpdate(req.params.id,{
         title:req.body.title,
