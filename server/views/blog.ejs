@@ -3,12 +3,10 @@
         <p class="date"><%= data.createdAt.toDateString() %></p>
         <h1 class="title"><%= data.title %></h1>
         <p class="description"><%= data.description %></p>
-        <img src="/images/blog.jpeg"  class="image-blog" alt="image of blog 2">
+        <img src="data:<%= data.img.contentType%>;base64,<%=data.img.imageBase64%>"  class="image-blog" alt="image of blog 2">
         <article>
-            <% const regexPattern = /([^\n]+)/g %>
-            
+            <% const regexPattern = /([^\n]+)/g %>   
             <% const arrayOfStrings = (data.content).match(regexPattern)%>
-            <% console.log(arrayOfStrings)%>
             <% arrayOfStrings.forEach(element => { %>
                 <p><%= element%></p>
             <% }) %>

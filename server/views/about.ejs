@@ -14,26 +14,29 @@
         </div>
         <div class="greeting">
             <h1>
-                Hi there! My name is Zainab, welcome to my learning journal
+                Hello, I'm Zainab Jinari, a passionate SAAS and web engineering student. Welcome to my Learning Journal!
             </h1>
             <p class="why-bootcamp">
-                After several months of learning in the Frontend Developer Career Path, I've made the big jump over to the Bootcamp to get expert code reviews of my Solo Projects projects and meet like-minded peers.
+                This space is my sanctuary for documenting my journey as a SAAS and web engineering enthusiast. Here, I share my experiences, insights, and the exciting challenges I encounter while navigating the world of technology.
             </p>
         </div>
         
         <article>
-            <h3>How I stay committed to learning</h3>
+            <h3>My Commitment to Lifelong Learning</h3>
             <p>
-                I like to think of myself as a lifelong learner. I used to spend hours and hours learning, then try to create simple projects using what I learned or work new techniques into existing projects.
+                I define myself as a lifelong learner, dedicating hours to expanding my knowledge. I enjoy turning my learnings into practical projects, experimenting with new techniques, and pushing the boundaries of what I can create.
             </p>
             <p>
-                While that was fun, I felt like it would be helpful to share what I was learning and most things about my journey with the world.
+                Beyond personal satisfaction, I believe in sharing my journey with the world, making the learning process more transparent and inspiring for others.
             </p>
-        </article>
-        <article>
-            <h3>How I got started</h3>
-            <p>I started simple and gradually grew my learning journal site. I would take notes about what I was learning. After each learning session, I'd use my notes to not only reflect on what I learned but also write short summaries of what I learned using my own words.</p>
-            <p>That helped me grok what I was learning, and I realized that posting my learning summaries was also helping others learn and stay motivated.</p>
+            <hr>
+            <h3>Embarking on the Learning Journey</h3>
+            <p>
+                My learning journey began with simple notes, gradually evolving into this comprehensive learning journal. After each study session, I not only reflect on what I've learned but also distill that knowledge into concise summaries using my own words.
+            </p>
+            <p>
+                This approach not only helps me solidify my understanding but also serves as a valuable resource for others navigating similar paths. The Learning Journal is not just a collection of blogs; it's a space where I share experiences, insights, and a deep passion for SAAS and web engineering.
+            </p>
         </article>
 
     </section>
@@ -41,7 +44,7 @@
             <h3>Recent posts</h3>
             <% for( let index = 0; index < 3; index++ ) { %>
                 <a class="blog "href="/blog/<%= data[index]._id %>">
-                    <img src="../images/blog.jpeg"  class="image-blog" alt="image of blog 2">
+                    <img src="data:<%= data[index].img.contentType%>;base64,<%=data[index].img.imageBase64%>"  class="image-blog" alt="image of blog 2">
                     <p class="date"><%= data[index].createdAt.toDateString() %></p>
                     <h1 class="title"><%= data[index].title  %></h1>
                     <p class="description"><%= data[index].description %></p>

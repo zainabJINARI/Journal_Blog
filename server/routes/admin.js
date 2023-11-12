@@ -87,16 +87,13 @@ router.get('/admin_dash',authMiddleware,async (req,res)=>{
 
 
 router.post('/add-blog',authMiddleware,store.single('imageBlog'),async (req,res,next)=>{
-  console.log(req)
   const {title,description,content}=req.body
   const imageBlog= req.file
-  console.log(imageBlog)
   let img = fs.readFileSync(imageBlog.path)
   encoded_image = img.toString('base64')
   
   try {
     const blog = await Blog.create({title,description,content,img:{contentType:imageBlog.mimetype,imageBase64:encoded_image}})
-    console.log(blog)
     res.redirect('/admin_dash')
     //res.status(201).json({message:'Blog created seccessfully'})
   } catch (error) {
@@ -120,20 +117,39 @@ router.get('/admin_dash/edit-blog/:id',authMiddleware,async(req,res)=>{
 
 
 
-router.put('/admin_dash/edit-blog/:id',authMiddleware,async (req,res)=>{
+router.put('/admin_dash/edit-blog/:id',authMiddleware,store.single('imageBlog'),async (req,res)=>{
  
   try {
-   
-    await Blog.findByIdAndUpdate(req.params.id,{
-      title:req.body.title,
-      description:req.body.description,
-      content:req.body.content,
-      updatedAt:Date.now()
-    })
+    const imageBlog= req.file
+    console.log(imageBlog)
+    if(!imageBlog){
+      await Blog.findByIdAndUpdate(req.params.id,{
+        title:req.body.title,
+        description:req.body.description,
+        content:req.body.content,
+        updatedAt:Date.now()
+      })
+
+
+    }else{
+      let img = fs.readFileSync(imageBlog.path)
+      encoded_image = img.toString('base64')
+      await Blog.findByIdAndUpdate(req.params.id,{
+        title:req.body.title,
+        description:req.body.description,
+        content:req.body.content,
+        updatedAt:Date.now(),
+        img:{contentType:imageBlog.mimetype,
+          imageBase64:encoded_image
+        }
+      })
+    }
+    
     res.redirect('/admin_dash')
     
   } catch (error) {
     console.log('error in editing ')
+    console.log(error.message)
   }
 })
 

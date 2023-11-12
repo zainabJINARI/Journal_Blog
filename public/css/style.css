@@ -213,13 +213,15 @@ footer .copy-right{
 }
 /*Style of the about me page*/
 .about{
-    display: inherit;
+    display: flex;
+    flex-direction: column;
     padding: 1em;
     font-size: 1em;
     color: #151515;
 
 }
 .about .about-me-img{
+    align-self: center;
     padding: 1em;
 }
 .about .about-me-img img{
@@ -235,8 +237,13 @@ footer .copy-right{
 }
 .about  article h3{
     font-size: inherit;
+    margin-bottom: 1em;
 }
-@media (min-width:650px){
+
+.recent-posts:last-child{
+    margin-top: 6em;
+}
+@media (min-width:700px){
     .about{
         display: grid;
         grid-template-columns: 1em minmax(200px,300px) minmax(auto,1fr) 1em ;

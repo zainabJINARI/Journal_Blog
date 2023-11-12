@@ -10,14 +10,14 @@
 <body>
    
     <section class="blogs">
-            <a class="blog one">
-                <img src="/images/programming.jpg" class="image-blog first" alt="image of blog 1">
-                <p class="date">JULY 23,2022</p>
-                <h1 class="title">My new journey as a bootcamp student.</h1>
-                <p class="description">After several months of learning in the Frontend Developer Career Path, I've made the big jump over to the Bootcamp to get expert code reviews of my Solo Projects projects and meet like-minded peers.</p>
+            <a class="blog one" href="/blog/<%= data[0]._id %>">
+                <img src="data:<%=  data[0].img.contentType%>;base64,<%= data[0].img.imageBase64%>" class="image-blog first" alt="image of blog 1">
+                <p class="date"><%= data[0].createdAt.toDateString() %></p>
+                <h1 class="title"><%= data[0].title %></h1>
+                <p class="description"><%= data[0].description %></p>
 
             </a>
-            <% data.forEach(blog => { %>
+            <% data.slice(1,).forEach(blog => { %>
                 <a class="blog" href="/blog/<%= blog._id %>">
                     <img src="data:<%= blog.img.contentType%>;base64,<%=blog.img.imageBase64%>"  class="image-blog" alt="image of blog 2">
                     <p class="date"><%= blog.createdAt.toDateString() %></p>
