@@ -8,11 +8,17 @@ const blogSchema = new mongoose.Schema({
     createdAt:{
         type:Date,
         default:Date.now
-    }
-    /*img:
+    },
+    img:
     {
-        data: Buffer,
-        contentType: String
-    }*/
+        contentType:{
+            type:String,
+            required:true
+        },
+        imageBase64:{
+            type:String,
+            required:true
+        }
+    }
 })
 module.exports=mongoose.model('Blog',blogSchema)

@@ -7,11 +7,11 @@
     </form> -->
     <section class="update-blog-post">
         <h1>Update Blog </h1>
-        <form action="/admin_dash/edit-blog/<%=data._id %>?_method=PUT" method="POST" >
+        <form action="/admin_dash/edit-blog/<%=data._id %>?_method=PUT" enctype="multipart/form-data" method="POST" >
             <input type="text" name="title" placeholder="Blog Title Here" id="title" required value="<%= data.title%>">
             <input type="text"rows="2" name="description" placeholder="Blog Description Here" id="description" required value="<%= data.description%>">
             <textarea id="content" class="content" placeholder="Content Of Blog Goes Here" name="content" required cols="50" rows="20"><%= data.content%></textarea>
-            <input type="file" name="imageBlog" id="imageBlog">
+            <input type="file" name="imageBlog" id="imageBlog" value="image">
             <input type="submit" value="Update" id="update" >
         </form>
     </section>
